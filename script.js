@@ -88,7 +88,14 @@ function game() {
     // Play five rounds
     for(i = 1; i <=5; i++){
         // Take user input and computer input and store them in variables and print them for the usesr to see
+        
+        // Make sure the user inputs a choice that is allowed
+
         let userInput = prompt("Make a choice - Rock, paper or scissorS!");
+        while(userInput === null || userInput.toUpperCase() != "ROCK" && userInput.toUpperCase() != "PAPER" && userInput.toUpperCase() != "SCISSORS"){
+            userInput = prompt("Please make a VALID choice - Rock, paper or scissorS!");
+        }
+        
         let computerInput = computerPlay();
         let roundResult = round(userInput, computerInput);
         console.log(`Your choice: ${userInput}, the computer's choice: ${computerInput}`);
