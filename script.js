@@ -20,13 +20,9 @@ function round(playerSelection, computerSelection) {
     playerSelection = playerSelection.toUpperCase();
     computerSelection = computerSelection.toUpperCase();
 
-    // Declare a message variable for the return message
-    let message = "Undefined";
+    // Declare a result variable that takes 1 for win, -1 for lost and 0 for tie
+    let result = 0;
 
-    // For clarity display the player and computer selections
-    console.log(playerSelection);
-    console.log(computerSelection);
-    
     // Compare player and computer selection
     /*  Rock vs Scissor -> Win
         Rock vs Paper -> Lose
@@ -43,41 +39,79 @@ function round(playerSelection, computerSelection) {
     if(playerSelection==="ROCK"){
         switch(computerSelection){
             case "SCISSORS":
-                message = "You win!";
+                result = 1;
                 break;
             case "PAPER":
-                message = "You lose!";
+                result = -1;
                 break;
             default:
-                message = "Tie!";
+                result = 0;
         }
     }
     if(playerSelection==="PAPER"){
         switch(computerSelection){
             case "ROCK":
-                message = "You win!";
+                result = 1;
                 break;
             case "SCISSORS":
-                message = "You lose!";
+                result = -1;
                 break;
             default:
-                message = "Tie!";
+                result = 0;
         }
     }
     if(playerSelection==="SCISSORS"){
         switch(computerSelection){
             case "PAPER":
-                message = "You win!";
+                result = 1;
                 break;
             case "ROCK":
-                message = "You lose!";
+                result = -1;
                 break;
             default:
-                message = "Tie!";
+                result = 0;
+        }
+    }
+    // Return the result result
+    return result;
+
+}
+
+
+
+function game() {
+
+    // declare variables to keep score
+    let playerPoints = 0;
+    let computerPoints = 0;
+
+    // Play five rounds
+    for(i = 1; i <=5; i++){
+        // Take user input and computer input and store them in variables and print them for the usesr to see
+        let userInput = prompt("Make a choice - Rock, paper or scissorS!");
+        let computerInput = computerPlay();
+        let roundResult = round(userInput, computerInput);
+        console.log(`Your choice: ${userInput}, the computer's choice: ${computerInput}`);
+
+        // Count the number of wins of player and computer    
+        if(roundResult === 1) {
+            playerPoints++;
+            console.log("You win this round.");
+        } else if (roundResult === -1) {
+            computerPoints++;
+            console.log("The computer wins this round.");
+        } else {
+            console.log("It's a tie");
         }
     }
 
-    // Return the result message
-    return message;
+    // Display the winner
+    if (playerPoints > computerPoints){
+        console.log(`You win the game with ${playerPoints} points.`);
+    } else if (playerPoints < computerPoints) {
+        console.log(`The computer wins the game with ${playerPoints} points.`);
+    } else {
+        console.log(`It's a tie. Player: ${playerPoints}, Computer: ${computerPoints}`);
+    }
 
 }
