@@ -5,8 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="script.js"></script>
+    <div class="container">
+        <div class="buttons">
+            <button data-choice="rock">Rock</button>
+            <button data-choice="paper">Paper</button>
+            <button data-choice="scissors">Scissors</button>
+        </div>
+        <div class="results">
+            <div class="choices">
+                <p>You chose: </p>
+                <p>The computer chose: </p>
+                <p>X beats Y</p>
+            </div>
+            <div class="contenders">
+                <div class="player">
+                    <p>You:</p>
+                    <p class="points">0</p>
+                </div>
+                <div class="computer">
+                    <p>Computer:</p>
+                    <p class="points">0</p>
+                </div>
+            </div>
+            <div class="winner">Winner: </div>
+        </div>
+    </div>
 </body>
 </html>
