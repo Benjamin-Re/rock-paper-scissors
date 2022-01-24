@@ -94,68 +94,35 @@ function game() {
         let display = document.querySelectorAll(".choices>p");
         display.item(0).textContent=`You chose: ${userInput}`;
         display.item(1).textContent=`Computer chose: ${computerInput}`;
-        // Increment playerpoints / computerpoints
+        // Update playerpoints / computerpoints
         if(result === 1) {
             playerPoints++;
-            document.querySelector(".player .points").textContent=playerPoints;
             display.item(2).textContent=`${userInput} beats ${computerInput}`;
         } else if (result === -1) {
             computerPoints++;
-            document.querySelector(".computer .points").textContent=computerPoints;
             display.item(2).textContent=`${computerInput} beats ${userInput}`;
         } else {
             display.item(2).textContent=`${computerInput} ties with ${userInput}`;
         }
+        // Display updated points
+        document.querySelector(".player .points").textContent=playerPoints;
+        document.querySelector(".computer .points").textContent=computerPoints;
+        // Once any player has five points he wins
+        let winDisplay = document.querySelector(".winner");
+        if(playerPoints >=5){
+            winDisplay.textContent="You win";
+            playerPoints = 0;
+            computerPoints = 0;
+        } else if (computerPoints >= 5) {
+            winDisplay.textContent = "Computer wins";
+            playerPoints = 0;
+            computerPoints = 0;
+        } else {
+            // Else noone has won yet so clear this field
+            winDisplay.textContent = "";
+        }
+
     }));
 }
 
 game();
-
-
-
-
-
-// function game() {
-
-//     // declare variables to keep score
-//     let playerPoints = 0;
-//     let computerPoints = 0;
-
-//     // Play five rounds
-//     for(i = 1; i <=5; i++){
-//         // Take user input and computer input and store them in variables and print them for the usesr to see
-        
-//         // Make sure the user inputs a choice that is allowed
-
-//         let userInput = prompt("Make a choice - Rock, paper or scissorS!");
-//         while(userInput === null || userInput.toUpperCase() != "ROCK" && userInput.toUpperCase() != "PAPER" && userInput.toUpperCase() != "SCISSORS"){
-//             userInput = prompt("Please make a VALID choice - Rock, paper or scissorS!");
-//         }
-        
-//         let computerInput = computerPlay();
-//         let roundResult = round(userInput, computerInput);
-//         console.log(`Your choice: ${userInput}, the computer's choice: ${computerInput}`);
-
-//         // Count the number of wins of player and computer    
-//         if(roundResult === 1) {
-//             playerPoints++;
-//             console.log("You win this round.");
-//         } else if (roundResult === -1) {
-//             computerPoints++;
-//             console.log("The computer wins this round.");
-//         } else {
-//             console.log("It's a tie");
-//         }
-//     }
-
-//     // Display the winner
-//     if (playerPoints > computerPoints){
-//         console.log(`You win the game with ${playerPoints} points.`);
-//     } else if (playerPoints < computerPoints) {
-//         console.log(`The computer wins the game with ${playerPoints} points.`);
-//     } else {
-//         console.log(`It's a tie. Player: ${playerPoints}, Computer: ${computerPoints}`);
-//     }
-
-// }
-
