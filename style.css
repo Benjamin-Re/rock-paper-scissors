@@ -1,23 +1,23 @@
 .container{
     height: 500px;
-    width: 500px;
+    width: 800px;
     margin: auto;
-    background-color: aliceblue;
+    background-color: peachpuff;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    border-radius: 8px;
 }
 
 .buttons{
-    border: 2px solid coral;
     flex-basis: 100%;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
 }
 
+
 .results {
-    border: 2px solid salmon;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -25,6 +25,9 @@
 
 body {
     text-align: center;
+    font-family: monospace;
+    font-size: large;
+    padding: 14px;
 }
 
 .contenders{
@@ -36,5 +39,17 @@ body {
 
 button{
     padding: 24px;
-    border-style: none;
+    border: none;
+    background-color: coral;
+    color: white;
+    font-family: monospace;
+    font-size: larger;
+    width: 150px;
+    border-radius: 8px;
+    margin-top: 12px;
+    transition-duration: 0.4s;
+}
+
+button:hover{
+    background-color:indianred;
 }

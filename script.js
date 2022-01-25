@@ -1,7 +1,7 @@
 function computerPlay(){
     /* Randomly return "Rock", "Paper" or "Scissors"*/
     // Make an array containing the options
-    const options = ["Rock", "Paper", "Scissors"];
+    const options = ["rock", "paper", "scissors"];
 
     // Generate a random number between 0 and 2
     let randomNumber = Math.floor(Math.random()*3);
@@ -97,12 +97,12 @@ function game() {
         // Update playerpoints / computerpoints
         if(result === 1) {
             playerPoints++;
-            display.item(2).textContent=`${userInput} beats ${computerInput}`;
+            display.item(2).textContent=`${userInput.toUpperCase()} beats ${computerInput.toUpperCase()}`;
         } else if (result === -1) {
             computerPoints++;
-            display.item(2).textContent=`${computerInput} beats ${userInput}`;
+            display.item(2).textContent=`${computerInput.toUpperCase()} beats ${userInput.toUpperCase()}`;
         } else {
-            display.item(2).textContent=`${computerInput} ties with ${userInput}`;
+            display.item(2).textContent=`${computerInput.toUpperCase()} ties with ${userInput.toUpperCase()}`;
         }
         // Display updated points
         document.querySelector(".player .points").textContent=playerPoints;
