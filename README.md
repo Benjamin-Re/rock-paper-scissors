@@ -1,6 +1,7 @@
 # rock-paper-scissors
-player should be able to play the game by clicking on buttons
-remove the logic that plays exactly five rounds
-Create three buttons
-Add a div for displaying results
-    Display the running score, and announce a winner of the game once one player reaches 5 points
+Live preview: https://benjamin-re.github.io/rock-paper-scissors/
+
+player is able to play the game against the computer by clicking on buttons
+Displays the running score, and announces a winner of the game once one player reaches 5 points
+
+Created as part of the Odin Project curriculum.
